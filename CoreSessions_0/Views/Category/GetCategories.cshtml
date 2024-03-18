@@ -1,0 +1,27 @@
+﻿@model List<Category>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Session'da Sakla</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td>
+                <td><a class="btn btn-warning" asp-action="UpdateCategory" asp-controller="Category" asp-route-id="@item.CategoryId">Update</a></td>
+                <td><a class="btn btn-danger" asp-action="DeleteCategory" asp-controller="Category" asp-route-id="@item.CategoryId">Delete</a></td>
+                <td><a class="btn btn-success" asp-action="CreateSession" asp-controller="Category" asp-route-id="@item.CategoryId">Safe</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
